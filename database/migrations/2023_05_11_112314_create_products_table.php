@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price');
-            $table->id('collection_id');
+            $table->integer('collection_id');
+            $table->string('description');
             $table->string('image_url');
             $table->timestamps();
         });

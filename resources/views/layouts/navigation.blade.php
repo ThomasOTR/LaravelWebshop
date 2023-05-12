@@ -38,10 +38,11 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        @role('admin')
                         <x-dropdown-link :href="route('admin.index')">
                             {{ __('Admin Dashboard') }}
                         </x-dropdown-link>
-
+                        @endrole
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

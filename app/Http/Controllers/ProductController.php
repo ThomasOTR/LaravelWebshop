@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.products', ['products' => Product::all()]);
     }
 
     /**
@@ -22,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create',['collections'=> Collection::all()]);
     }
 
     /**
@@ -30,7 +32,15 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->collection_id = $request->collection_id;
+        $product->description = $request->description;
+        $product->image_url = "default_image.jpeg";
+        $product->save();
+
+        return Redirect::route('admin.products');
     }
 
     /**
@@ -38,7 +48,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.show',['product'=> $product]);
     }
 
     /**
@@ -46,7 +56,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit',['product'=> $product]);
     }
 
     /**
@@ -54,7 +64,13 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->save();
+
+        return Redirect::route('admin.products');
+
     }
 
     /**
@@ -62,6 +78,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return Redirect::route('admin.products');
+
     }
 }

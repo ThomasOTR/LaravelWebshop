@@ -2,19 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Collection;
 use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProductSeeder extends Seeder
+class CollectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Product::factory()
-            ->count(50)
+        Collection::factory()
+            ->count(6)
             ->create();
     }
 }

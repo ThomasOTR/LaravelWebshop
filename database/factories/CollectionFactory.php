@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
+use App\Models\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
-class ProductFactory extends Factory
+class CollectionFactory extends Factory
 {
-    protected $model = Product::class;
+    protected $model = Collection::class;
 
     /**
      * Define the model's default state.
@@ -20,11 +20,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->word(),
-            'collection_id' => rand(1,6),
-            'price' => fake()->randomFloat(2,1,100),
-            'description' => fake()->sentence(),
-            'image_url' => "https://source.unsplash.com/collection/190727/300x300"
+            'name' => fake()->monthName . fake()->year . " Collection"
         ];
     }
 }

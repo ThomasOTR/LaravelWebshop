@@ -11,6 +11,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -33,4 +36,12 @@
             </main>
         </div>
     </body>
+    <!-- footer -->
+    <footer class="bg-gray-100 text-white">
+        <div class="container mx-auto flex items-center px-5 py-8">
+            <p class="text-sm text-black">
+                @ 2023 — Thomas van de Weg
+            </p>
+        </div>
+    </footer>
 </html>
