@@ -13,8 +13,10 @@ The following parts are included in the website:
 - Views with Tailwind CSS
 
 ## Useful information 
-There are 2 default users. 1 of these users has administrator rights
+There are 2 default users. 1 of these users has administrator rights.
+
 admin@webshop.com - Welcome123
+
 user@webshop.com - Welcome123
 
 
