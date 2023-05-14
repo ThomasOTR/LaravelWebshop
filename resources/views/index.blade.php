@@ -16,6 +16,7 @@
             <h2 class="text-3xl font-semibold text-gray-800">Featured Products</h2>
             <div class="w-24 border-b-4 border-yellow-400"></div>
         </div>
+        @if($products->count() != 0)
         <div class="grid gap-2 md:grid-cols-4">
             @foreach($products as $product)
             <div class="relative mx-6">
@@ -30,8 +31,14 @@
             </div>
             @endforeach
         </div>
+        @else
+            <div class="mb-12 flex flex-col items-center justify-center">
+                <h4 class=" font-semibold text-gray-800">There are currently no featured products</h4>
+            </div>
+        @endif
     </section>
 
+    @if($collections->count() != 0)
     <section class="container mx-auto mt-20">
         <div class="mb-12 flex flex-col items-center justify-center">
             <h2 class="text-3xl font-semibold text-gray-800">Collections</h2>
@@ -50,4 +57,5 @@
         @endforeach
         </div>
     </section>
+    @endif
 </x-app-layout>
